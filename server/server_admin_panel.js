@@ -4,6 +4,7 @@ const cors = require('cors')
 const utils = require('./utils')
 const jwt = require('jsonwebtoken')
 const config = require('./config')
+const morgan = require('morgan')
 
 //import routes
 const routeAdmins = require('./routes/admin/admins')
@@ -16,6 +17,7 @@ const routeUser = require('./routes/admin/user')
 const app = express()
 app.use(bodyparser.json())
 app.use(cors('*'))
+app.use(morgan('dev'))
 
 
 // scenario 1: token is missing: send 401

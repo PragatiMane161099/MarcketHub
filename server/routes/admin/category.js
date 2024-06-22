@@ -23,6 +23,7 @@ router.put('/:id',(request,response) => {
     const {id} = request.params
     const {title, description} = request.body
     const statement = `update catagory set title = '${title}', description = '${description}' where id =${id}`
+    console.log(statement)
     db.query(statement, (error, data) => {
         response.send(utils.createResult(error,data))
     })
